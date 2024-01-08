@@ -53,11 +53,11 @@ const Login = ({ setUser, setSecret }) => {
 
         <div className="login-actions">
           {isRegister ? (
-            <button type="button" onClick={handleRegister}>
+            <button className="login-btn" type="button" onClick={handleRegister}>
               Register
             </button>
           ) : (
-            <button type="button" onClick={handleLogin}>
+            <button className="login-btn" type="button" onClick={handleLogin}>
               Login
             </button>
           )}

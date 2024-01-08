@@ -9,6 +9,7 @@ import StandardMessageForm from "@/components/customMessageForms/StandardMessage
 import Ai from "@/components/customMessageForms/Ai";
 import AiCode from "@/components/customMessageForms/AiCode";
 import AiAssist from "@/components/customMessageForms/AiAssist";
+import AiImage from "@/components/customMessageForms/AiImage";
 
 const Chat = ({ user, secret }) => {
   const chatProps = useMultiChatLogic(
@@ -33,6 +34,9 @@ const Chat = ({ user, secret }) => {
           }
           if (chatProps.chat?.title.startsWith("AiAssist_")) {
             return <AiAssist props={props} activeChat={chatProps.chat} />;
+          }
+          if (chatProps.chat?.title.startsWith("AiImage_")) {
+            return <AiImage props={props} activeChat={chatProps.chat} />;
           }
 
           return (
