@@ -53,6 +53,40 @@ router.post("/text", async (req, res) => {
   }
 });
 
+router.post("/image", async (req, res) => {
+  try {
+    const { text, activeChatId } = req.body;
+
+    const response = await openai.images.generate({
+      model: "dall-e-3",
+      prompt: text,
+      n: 1,
+      size: "1024x1024",
+    });
+
+    await axios.post(
+      `https://api.chatengine.io/chats/${activeChatId}/messages/`,
+      { text: response.data.data[0].url },
+      {
+        headers: {
+          "Project-ID": process.env.PROJECT_ID,
+          "User-Name": process.env.BOT_USER_NAME,
+          "User-Secret": process.env.BOT_USER_SECRET,
+        },
+      }
+    );
+      
+    res.status(200).json({ text: response.data.data[0].url })
+  } catch (error) {
+    console.error("error", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
+
+
+
 router.post("/code", async (req, res) => {
   try {
     const { text, activeChatId } = req.body;
