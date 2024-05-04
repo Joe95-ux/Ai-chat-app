@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
 import { ChatBubbleLeftRightIcon, PhoneIcon } from "@heroicons/react/24/solid";
 
 const CustomerHeader = ({ chat }) => {

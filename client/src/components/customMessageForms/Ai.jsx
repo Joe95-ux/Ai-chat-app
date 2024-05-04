@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { usePostAiTextMutation } from "@/state/api";
-import React, { useState } from "react";
+import  { useState } from "react";
 import MessageFormUI from "./MessageFormUI";
 
 const Ai = ({ props, activeChat }) => {

@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { usePostAiCodeMutation } from "@/state/api";
-import React, { useState } from "react";
+import  { useState } from "react";
 import MessageFormUI from "./MessageFormUI";
 
 const AiCode = ({ props, activeChat }) => {
