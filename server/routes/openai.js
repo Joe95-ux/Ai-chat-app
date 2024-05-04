@@ -64,19 +64,23 @@ router.post("/image", async (req, res) => {
       size: "1024x1024",
     });
 
-    await axios.post(
-      `https://api.chatengine.io/chats/${activeChatId}/messages/`,
-      { text: response.data.data[0].url },
-      {
-        headers: {
-          "Project-ID": process.env.PROJECT_ID,
-          "User-Name": process.env.BOT_USER_NAME,
-          "User-Secret": process.env.BOT_USER_SECRET,
-        },
-      }
-    );
+    const data = {"text": "", "attachment_urls": [response.data[0].url], "custom_json": {} }
+    const config = { 
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: `https://api.chatengine.io/chats/${activeChatId}/messages/`,
+      headers: {
+        "Project-ID": process.env.PROJECT_ID,
+        "User-Name": process.env.BOT_USER_NAME,
+        "User-Secret": process.env.BOT_USER_SECRET,
+      },
+      data : data
+    };
+
+    
+    await axios(config)
       
-    res.status(200).json({ text: response.data.data[0].url })
+    res.status(200).json({ attachments: response.data[0].url})
   } catch (error) {
     console.error("error", error);
     res.status(500).json({ error: error.message });
