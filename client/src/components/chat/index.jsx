@@ -15,7 +15,7 @@ const Chat = ({ user, secret }) => {
   const chatProps = useMultiChatLogic(
     import.meta.env.VITE_PROJECT_ID,
     user,
-    secret
+    secret,
   );
 
   return (
@@ -43,6 +43,8 @@ const Chat = ({ user, secret }) => {
             <StandardMessageForm props={props} activeChat={chatProps.chat} />
           );
         }}
+
+
       />
     </div>
   );

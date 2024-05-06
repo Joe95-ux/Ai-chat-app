@@ -26,6 +26,13 @@ const StandardMessageForm = ({ props, activeChat }) => {
     setMessage("");
     setAttachment("");
   };
+  const handleKeyPress = (e) => {
+    // Check if the pressed key is Enter (key code 13)
+    if (e.key === 'Enter') {
+      handleSubmit();
+      e.preventDefault();
+    }
+  };
 
   return (
     <MessageFormUI
@@ -33,6 +40,7 @@ const StandardMessageForm = ({ props, activeChat }) => {
       message={message}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
+      handleKeyDown={handleKeyPress}
     />
   );
 };

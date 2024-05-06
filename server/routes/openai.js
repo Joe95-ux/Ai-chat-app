@@ -36,7 +36,7 @@ router.post("/text", async (req, res) => {
 
     await axios.post(
       `https://api.chatengine.io/chats/${activeChatId}/messages/`,
-      { text: response.choices[0].message.content },
+      { text: response.choices[0].message.content},
       {
         headers: {
           "Project-ID": process.env.PROJECT_ID,
@@ -106,7 +106,7 @@ router.post("/code", async (req, res) => {
 
     await axios.post(
       `https://api.chatengine.io/chats/${activeChatId}/messages/`,
-      { text: response.choices[0].message.content },
+      { text: response.choices[0].message.content},
       {
         headers: {
           "Project-ID": process.env.PROJECT_ID,
