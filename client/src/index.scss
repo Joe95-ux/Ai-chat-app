@@ -312,7 +312,7 @@ body,
 
 .ce-chat-card-subtitle {
   bottom: 16px !important;
-  color: $tertiary-100 !important;
+  color: rgb(148 163 184) !important;
   font-family: "Rubik" !important;
   font-weight: 300 !important;
 }
@@ -325,8 +325,8 @@ body,
 }
 
 .ce-active-chat-card {
-  background-color: $secondary-800 !important;
-  color: $tertiary-100 !important;
+  background-color: $primary-400 !important;
+  color: #fff !important;
 }
 
 .ce-chat-card-unread {
